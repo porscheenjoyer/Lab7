@@ -34,20 +34,33 @@ public class Task8 {
 
         } while (!done);
 
-        System.out.println("Did you enter celsius or fahrenheit?(c or f)");
+        done = false;
 
-        if (in.nextLine().equalsIgnoreCase("c")) {
+        do {
 
-            tempF = (9 / 5 * userTemp) + 32;
-            System.out.println("The temp in fahrenheit is:" + tempF + "°F");
+            System.out.println("Did you enter celsius or fahrenheit?(c or f)");
 
-        }
+            cOrF = in.nextLine();
 
-        else if (in.nextLine().equalsIgnoreCase("f")) {
+            if (cOrF.equalsIgnoreCase("c")) {
 
+                tempF = (9 / 5 * userTemp) + 32;
+                System.out.println("The temp in fahrenheit is:" + tempF + "°F");
+                done = true;
 
+            } else if (cOrF.equalsIgnoreCase("f")) {
 
-        }
+                tempC = (userTemp - 32) * 5 / 9;
+                System.out.println("The temp in celsius is: " + tempC + "°C");
+                done = true;
+
+            } else {
+
+                System.out.println("Must input c or f");
+
+            }
+
+        } while (!done);
 
     }
 }
